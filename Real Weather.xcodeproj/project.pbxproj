@@ -18,6 +18,13 @@
 		FF6F04F621199E8400962DCF /* Real_WeatherUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF6F04F521199E8400962DCF /* Real_WeatherUITests.swift */; };
 		FFEF4A352119FE2E005D702C /* WeatherDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFEF4A342119FE2E005D702C /* WeatherDetailViewController.swift */; };
 		FFEF4A372119FFE6005D702C /* WeatherCardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFEF4A362119FFE6005D702C /* WeatherCardCollectionViewCell.swift */; };
+		FFEF4A3B211A0317005D702C /* WeatherDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFEF4A3A211A0317005D702C /* WeatherDetail.swift */; };
+		FFEF4A3E211A03BC005D702C /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFEF4A3D211A03BC005D702C /* Request.swift */; };
+		FFEF4A40211A03CC005D702C /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFEF4A3F211A03CC005D702C /* Response.swift */; };
+		FFEF4A44211A03E9005D702C /* SingleDataResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFEF4A43211A03E9005D702C /* SingleDataResponse.swift */; };
+		FFEF4A46211A0598005D702C /* WeatherDetailRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFEF4A45211A0598005D702C /* WeatherDetailRequest.swift */; };
+		FFEF4A49211A05C6005D702C /* GlobalVariable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFEF4A48211A05C6005D702C /* GlobalVariable.swift */; };
+		FFEF4A4B211A1B9E005D702C /* GlobalMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFEF4A4A211A1B9E005D702C /* GlobalMethod.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +68,13 @@
 		FF6F04F721199E8400962DCF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FFEF4A342119FE2E005D702C /* WeatherDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDetailViewController.swift; sourceTree = "<group>"; };
 		FFEF4A362119FFE6005D702C /* WeatherCardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherCardCollectionViewCell.swift; sourceTree = "<group>"; };
+		FFEF4A3A211A0317005D702C /* WeatherDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDetail.swift; sourceTree = "<group>"; };
+		FFEF4A3D211A03BC005D702C /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
+		FFEF4A3F211A03CC005D702C /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
+		FFEF4A43211A03E9005D702C /* SingleDataResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleDataResponse.swift; sourceTree = "<group>"; };
+		FFEF4A45211A0598005D702C /* WeatherDetailRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDetailRequest.swift; sourceTree = "<group>"; };
+		FFEF4A48211A05C6005D702C /* GlobalVariable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalVariable.swift; sourceTree = "<group>"; };
+		FFEF4A4A211A1B9E005D702C /* GlobalMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalMethod.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,6 +153,8 @@
 		FF6F04D421199E8300962DCF /* Real Weather */ = {
 			isa = PBXGroup;
 			children = (
+				FFEF4A47211A05B2005D702C /* Utility */,
+				FFEF4A3C211A037E005D702C /* Network Abstraction */,
 				FFEF4A312119FDCA005D702C /* Model */,
 				FFEF4A332119FDE0005D702C /* Controller */,
 				FFEF4A322119FDD7005D702C /* View */,
@@ -170,6 +186,7 @@
 		FFEF4A312119FDCA005D702C /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				FFEF4A3A211A0317005D702C /* WeatherDetail.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -208,6 +225,42 @@
 			path = "Collection View Cell";
 			sourceTree = "<group>";
 		};
+		FFEF4A3C211A037E005D702C /* Network Abstraction */ = {
+			isa = PBXGroup;
+			children = (
+				FFEF4A42211A03D8005D702C /* Response */,
+				FFEF4A41211A03D2005D702C /* Request */,
+				FFEF4A3D211A03BC005D702C /* Request.swift */,
+				FFEF4A3F211A03CC005D702C /* Response.swift */,
+			);
+			path = "Network Abstraction";
+			sourceTree = "<group>";
+		};
+		FFEF4A41211A03D2005D702C /* Request */ = {
+			isa = PBXGroup;
+			children = (
+				FFEF4A45211A0598005D702C /* WeatherDetailRequest.swift */,
+			);
+			path = Request;
+			sourceTree = "<group>";
+		};
+		FFEF4A42211A03D8005D702C /* Response */ = {
+			isa = PBXGroup;
+			children = (
+				FFEF4A43211A03E9005D702C /* SingleDataResponse.swift */,
+			);
+			path = Response;
+			sourceTree = "<group>";
+		};
+		FFEF4A47211A05B2005D702C /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				FFEF4A48211A05C6005D702C /* GlobalVariable.swift */,
+				FFEF4A4A211A1B9E005D702C /* GlobalMethod.swift */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -219,6 +272,7 @@
 				FF6F04CE21199E8300962DCF /* Sources */,
 				FF6F04CF21199E8300962DCF /* Frameworks */,
 				FF6F04D021199E8300962DCF /* Resources */,
+				7E58A1536C803D57AA1F9654 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -374,6 +428,24 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		7E58A1536C803D57AA1F9654 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Real Weather/Pods-Real Weather-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Real Weather/Pods-Real Weather-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		DFFA911DFCDA616DD5A5FCB0 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -400,8 +472,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				FFEF4A352119FE2E005D702C /* WeatherDetailViewController.swift in Sources */,
+				FFEF4A46211A0598005D702C /* WeatherDetailRequest.swift in Sources */,
+				FFEF4A3B211A0317005D702C /* WeatherDetail.swift in Sources */,
+				FFEF4A3E211A03BC005D702C /* Request.swift in Sources */,
 				FFEF4A372119FFE6005D702C /* WeatherCardCollectionViewCell.swift in Sources */,
+				FFEF4A4B211A1B9E005D702C /* GlobalMethod.swift in Sources */,
+				FFEF4A40211A03CC005D702C /* Response.swift in Sources */,
+				FFEF4A44211A03E9005D702C /* SingleDataResponse.swift in Sources */,
 				FF6F04D621199E8300962DCF /* AppDelegate.swift in Sources */,
+				FFEF4A49211A05C6005D702C /* GlobalVariable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

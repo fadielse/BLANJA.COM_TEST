@@ -6,6 +6,8 @@ target 'Real Weather' do
   use_frameworks!
 
   # Pods for Real Weather
+  
+  pod 'Alamofire'
 
   target 'Real WeatherTests' do
     inherit! :search_paths

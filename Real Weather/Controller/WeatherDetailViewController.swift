@@ -8,7 +8,7 @@
 
 import UIKit
 
-class WeatherDetailViewController: UIViewController {
+final class WeatherDetailViewController: UIViewController {
     @IBOutlet weak var weatherBackgroundImage: UIImageView!
     @IBOutlet weak var refreshButton: UIButton!
     @IBOutlet weak var unitTypeButton: UIButton!
@@ -19,10 +19,14 @@ class WeatherDetailViewController: UIViewController {
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var collectionView: UICollectionView!
     
+    var dailyForecasts: WeatherDetail!
+    var todayForecast: Forecast!
+    var isCelciusUnit: Bool = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        setupSubviews()
+        getWeatherDetail()
     }
     
     override func viewDidLayoutSubviews() {
@@ -57,17 +61,134 @@ extension WeatherDetailViewController {
 // MARK: - Setup
 extension WeatherDetailViewController {
     func setupSubviews() {
+        setupRefreshButton()
+        setupUnitTypeButton()
+        setupDateTimeLabel()
+        setupWeatherLabel()
+        setupTemperatureLabel()
+        setupLocationLabel()
+        setupCollectionView()
+    }
+    
+    func setupWeatherBackground() {
+        weatherBackgroundImage.image = Int(NSDate().timeIntervalSince1970) >= todayForecast.moon.epochRise
+        ? UIImage(named: "\(todayForecast.night.icon)_background")
+        : UIImage(named: "\(todayForecast.day.icon)_background")
+    }
+    
+    func setupRefreshButton() {
+        refreshButton.addTarget(self, action: #selector(refreshButtonTapped), for: .touchUpInside)
+    }
+    
+    func setupUnitTypeButton() {
+        unitTypeButton.setTitle(isCelciusUnit ? "°F" : "°C", for: .normal)
+        unitTypeButton.addTarget(self, action: #selector(temperatureButtonTapped), for: .touchUpInside)
+    }
+    
+    func setupDateTimeLabel() {
+        dateTimeLabel.text = convertEpochToDate(withTimeStamp: todayForecast.epochDate, AndFormat: "E, dd MMM yyyy HH:mm")
+    }
+    
+    func setupWeatherLabel() {
+        weatherLabel.text = todayForecast.day.shortPhrase
+    }
+    
+    func setupTemperatureLabel() {
+        temperatureLabel.text = !isCelciusUnit
+            ? "\(todayForecast.temperature.temperatureMin.value)°\(todayForecast.temperature.temperatureMin.unit)"
+            : "\(convertToCelsius(fahrenheit: todayForecast.temperature.temperatureMin.value))°C"
+    }
+    
+    func setupLocationLabel() {
         
+    }
+    
+    func setupCollectionView() {
+        collectionView.delegate = self
+        collectionView.dataSource = self
     }
 }
 
 // MARK: - Action
 extension WeatherDetailViewController {
+    func getWeatherDetail() {
+        refreshButton.isEnabled = false
+        
+        WeatherDetailRequest(locationID: 208971, detail: true, metric: false).send { result in
+            self.refreshButton.isEnabled = true
+            
+            switch result {
+            case .success(let response):
+                if let dailyForecasts = response.data {
+                    if dailyForecasts.forecasts.count > 0 {
+                        self.dailyForecasts = dailyForecasts
+                        self.todayForecast = dailyForecasts.forecasts[1]
+                        
+                        self.dailyForecasts.forecasts.remove(at: 1)
+                        
+                        if self.todayForecast != nil {
+                            self.setupSubviews()
+                            self.setupWeatherBackground()
+                        }
+                    }
+                } else {
+                    print("Error")
+                }
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
+    
     @objc func backButtonTapped() {
         
     }
     
     @objc func temperatureButtonTapped() {
+        temperatureLabel.text = isCelciusUnit
+            ? "\(todayForecast.temperature.temperatureMin.value)°\(todayForecast.temperature.temperatureMin.unit)"
+            : "\(convertToCelsius(fahrenheit: todayForecast.temperature.temperatureMin.value))°C"
         
+        isCelciusUnit = !isCelciusUnit
+        
+        setupUnitTypeButton()
+        collectionView.reloadData()
+    }
+    
+    @objc func refreshButtonTapped() {
+        getWeatherDetail()
     }
 }
+
+// MARK: - CollectionView Delegate
+extension WeatherDetailViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return dailyForecasts.forecasts.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let width = (self.view.frame.size.width / 3.5)
+        let height = collectionView.frame.height
+        return CGSize(width: width, height: height)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "weatherCell", for: indexPath) as? WeatherCardCollectionViewCell {
+            cell.configureCell(withData: dailyForecasts.forecasts[indexPath.row], andIndexpath: indexPath, andIsCelcius: isCelciusUnit)
+            
+            return cell
+        } else {
+            return WeatherCardCollectionViewCell()
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
