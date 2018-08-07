@@ -11,12 +11,13 @@
 		219289DEB559B6FF811F63CD /* Pods_Real_Weather.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E52E6932073C3E9EFC79BF33 /* Pods_Real_Weather.framework */; };
 		4A142855E7653E808D52A769 /* Pods_Real_WeatherUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 685B2F2FDB345F0F161C8498 /* Pods_Real_WeatherUITests.framework */; };
 		FF6F04D621199E8300962DCF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF6F04D521199E8300962DCF /* AppDelegate.swift */; };
-		FF6F04D821199E8300962DCF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF6F04D721199E8300962DCF /* ViewController.swift */; };
 		FF6F04DB21199E8300962DCF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF6F04D921199E8300962DCF /* Main.storyboard */; };
 		FF6F04DD21199E8400962DCF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF6F04DC21199E8400962DCF /* Assets.xcassets */; };
 		FF6F04E021199E8400962DCF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF6F04DE21199E8400962DCF /* LaunchScreen.storyboard */; };
 		FF6F04EB21199E8400962DCF /* Real_WeatherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF6F04EA21199E8400962DCF /* Real_WeatherTests.swift */; };
 		FF6F04F621199E8400962DCF /* Real_WeatherUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF6F04F521199E8400962DCF /* Real_WeatherUITests.swift */; };
+		FFEF4A352119FE2E005D702C /* WeatherDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFEF4A342119FE2E005D702C /* WeatherDetailViewController.swift */; };
+		FFEF4A372119FFE6005D702C /* WeatherCardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFEF4A362119FFE6005D702C /* WeatherCardCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,7 +49,6 @@
 		E52E6932073C3E9EFC79BF33 /* Pods_Real_Weather.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Real_Weather.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF6F04D221199E8300962DCF /* Real Weather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Real Weather.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF6F04D521199E8300962DCF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		FF6F04D721199E8300962DCF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		FF6F04DA21199E8300962DCF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FF6F04DC21199E8400962DCF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FF6F04DF21199E8400962DCF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -59,6 +59,8 @@
 		FF6F04F121199E8400962DCF /* Real WeatherUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Real WeatherUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF6F04F521199E8400962DCF /* Real_WeatherUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Real_WeatherUITests.swift; sourceTree = "<group>"; };
 		FF6F04F721199E8400962DCF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FFEF4A342119FE2E005D702C /* WeatherDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDetailViewController.swift; sourceTree = "<group>"; };
+		FFEF4A362119FFE6005D702C /* WeatherCardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherCardCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,11 +139,11 @@
 		FF6F04D421199E8300962DCF /* Real Weather */ = {
 			isa = PBXGroup;
 			children = (
+				FFEF4A312119FDCA005D702C /* Model */,
+				FFEF4A332119FDE0005D702C /* Controller */,
+				FFEF4A322119FDD7005D702C /* View */,
 				FF6F04D521199E8300962DCF /* AppDelegate.swift */,
-				FF6F04D721199E8300962DCF /* ViewController.swift */,
-				FF6F04D921199E8300962DCF /* Main.storyboard */,
 				FF6F04DC21199E8400962DCF /* Assets.xcassets */,
-				FF6F04DE21199E8400962DCF /* LaunchScreen.storyboard */,
 				FF6F04E121199E8400962DCF /* Info.plist */,
 			);
 			path = "Real Weather";
@@ -163,6 +165,47 @@
 				FF6F04F721199E8400962DCF /* Info.plist */,
 			);
 			path = "Real WeatherUITests";
+			sourceTree = "<group>";
+		};
+		FFEF4A312119FDCA005D702C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		FFEF4A322119FDD7005D702C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				FFEF4A392119FFFE005D702C /* Collection View Cell */,
+				FFEF4A382119FFF1005D702C /* Story Board */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		FFEF4A332119FDE0005D702C /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				FFEF4A342119FE2E005D702C /* WeatherDetailViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		FFEF4A382119FFF1005D702C /* Story Board */ = {
+			isa = PBXGroup;
+			children = (
+				FF6F04DE21199E8400962DCF /* LaunchScreen.storyboard */,
+				FF6F04D921199E8300962DCF /* Main.storyboard */,
+			);
+			path = "Story Board";
+			sourceTree = "<group>";
+		};
+		FFEF4A392119FFFE005D702C /* Collection View Cell */ = {
+			isa = PBXGroup;
+			children = (
+				FFEF4A362119FFE6005D702C /* WeatherCardCollectionViewCell.swift */,
+			);
+			path = "Collection View Cell";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -356,7 +399,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FF6F04D821199E8300962DCF /* ViewController.swift in Sources */,
+				FFEF4A352119FE2E005D702C /* WeatherDetailViewController.swift in Sources */,
+				FFEF4A372119FFE6005D702C /* WeatherCardCollectionViewCell.swift in Sources */,
 				FF6F04D621199E8300962DCF /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -532,8 +576,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = L4A72M4SRA;
 				INFOPLIST_FILE = "Real Weather/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "self.edu.Real-Weather";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -547,8 +595,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = L4A72M4SRA;
 				INFOPLIST_FILE = "Real Weather/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "self.edu.Real-Weather";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -564,7 +616,11 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = "Real WeatherTests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "self.edu.Real-WeatherTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -581,7 +637,11 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = "Real WeatherTests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "self.edu.Real-WeatherTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -597,7 +657,11 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = "Real WeatherUITests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "self.edu.Real-WeatherUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -613,7 +677,11 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = "Real WeatherUITests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "self.edu.Real-WeatherUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
