@@ -9,4 +9,4 @@
 import Foundation
 
 let kAPIKey = "q63ZHNGJ4O9qnGJGVBZBX4GTwUzDVfFw"
-let kAPIURL = "http://dataservice.accuweather.com/forecasts/v1"
+let kAPIURL = "http://dataservice.accuweather.com"

@@ -51,15 +51,11 @@ extension WeatherCardCollectionViewCell {
     }
     
     func setupDayLabel() {
-        dayLabel.text = indexPath.row == 0
-            ? "Yesterday"
-            : convertEpochToDate(withTimeStamp: forecast.epochDate, AndFormat: "EEEE")
+        dayLabel.text = convertEpochToDate(withTimeStamp: forecast.epochDate, AndFormat: "EEEE")
     }
     
     func setupWeatherImage() {
-        weatherImage.image = Int(NSDate().timeIntervalSince1970) >= forecast.moon.epochRise
-            ? UIImage(named: "\(forecast.night.icon)_icon")
-            : UIImage(named: "\(forecast.day.icon)_icon")
+        weatherImage.image = UIImage(named: "\(forecast.day.icon)_icon")
     }
     
     func setuptemperatureLabel() {

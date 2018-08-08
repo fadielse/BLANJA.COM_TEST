@@ -31,3 +31,27 @@ struct SingleDataResponse<T: ResponseDataConvertible>: Response {
         }
     }
 }
+
+struct ListDataResponse<T: ResponseDataConvertible>: Response {
+    let data: T?
+    var code: String = ""
+    var message: String = ""
+    
+    init?(json: Any) {
+        if let json = json as? [[String: Any]] {
+            self.data = T(rawData: json)
+        } else if let json = json as? [String: Any]  {
+            if let code = json["Code"] as? String {
+                self.code = code
+            }
+            
+            if let message = json["Message"] as? String {
+                self.message = message
+            }
+            
+            self.data = nil
+        } else {
+            return nil
+        }
+    }
+}

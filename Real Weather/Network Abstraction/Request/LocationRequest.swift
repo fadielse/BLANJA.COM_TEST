@@ -1,26 +1,24 @@
 //
-//  WeatherDetailRequest.swift
+//  LocationRequest.swift
 //  Real Weather
 //
-//  Created by FADIELSE on 07.08.18.
+//  Created by FADIELSE on 08.08.18.
 //  Copyright © 2018 Fadielse. All rights reserved.
 //
 
 import Foundation
 
-struct WeatherDetailRequest {
-    let locationID: String
-    let detail: Bool
-    let metric: Bool
+struct LocationsRequest {
+    let keyword: String
 }
 
-extension WeatherDetailRequest: Request {
+extension LocationsRequest: Request {
     var baseURL: URL {
         return URL(fileURLWithPath: kAPIURL)
     }
     
     var path: String {
-        return "/forecasts/v1/daily/5day/\(locationID)"
+        return "/locations/v1/cities/autocomplete"
     }
     
     var method: HTTPMethod {
@@ -35,11 +33,9 @@ extension WeatherDetailRequest: Request {
         return [
             "apikey": kAPIKey,
             "language": "en-us",
-            "details": detail ? "true" : "false",
-            "metric": metric ? "true" : "false"
+            "q": keyword,
         ]
     }
     
-    
-    typealias ResponseType = SingleDataResponse<WeatherDetail>
+    typealias ResponseType = ListDataResponse<Locations>
 }

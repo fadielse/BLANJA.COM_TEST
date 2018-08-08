@@ -11,7 +11,7 @@ import Foundation
 public func convertEpochToDate(withTimeStamp timeStamp: Int, AndFormat format: String) -> String {
     let date = Date(timeIntervalSince1970: TimeInterval(timeStamp))
     let dateFormatter = DateFormatter()
-    dateFormatter.timeZone = TimeZone(abbreviation: "GMT")
+    dateFormatter.timeZone = TimeZone(abbreviation: NSTimeZone.local.abbreviation()!)
     dateFormatter.locale = NSLocale.current
     dateFormatter.dateFormat = format
     let strDate = dateFormatter.string(from: date)

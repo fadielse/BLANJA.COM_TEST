@@ -18,10 +18,13 @@ final class WeatherDetailViewController: UIViewController {
     @IBOutlet weak var temperatureLabel: UILabel!
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var searchLocationButton: UIButton!
     
     var dailyForecasts: WeatherDetail!
     var todayForecast: Forecast!
     var isCelciusUnit: Bool = false
+    
+    var location: Location!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -68,12 +71,20 @@ extension WeatherDetailViewController {
         setupTemperatureLabel()
         setupLocationLabel()
         setupCollectionView()
+        setupSearchLocationButton()
     }
     
     func setupWeatherBackground() {
         weatherBackgroundImage.image = Int(NSDate().timeIntervalSince1970) >= todayForecast.moon.epochRise
-        ? UIImage(named: "\(todayForecast.night.icon)_background")
-        : UIImage(named: "\(todayForecast.day.icon)_background")
+        ? UIImage(named: "\(todayForecast.day.icon)_background")
+        : UIImage(named: "\(todayForecast.night.icon)_background")
+        
+        debugPrint("Night : \(todayForecast.night.icon)_background")
+        debugPrint("Day : \(todayForecast.day.icon)_background")
+    }
+    
+    func setupSearchLocationButton() {
+        searchLocationButton.addTarget(self, action: #selector(searchLocationButtonTapped), for: .touchUpInside)
     }
     
     func setupRefreshButton() {
@@ -86,7 +97,7 @@ extension WeatherDetailViewController {
     }
     
     func setupDateTimeLabel() {
-        dateTimeLabel.text = convertEpochToDate(withTimeStamp: todayForecast.epochDate, AndFormat: "E, dd MMM yyyy HH:mm")
+        dateTimeLabel.text = convertEpochToDate(withTimeStamp: todayForecast.epochDate, AndFormat: "E, dd MMM yyyy") + " "
     }
     
     func setupWeatherLabel() {
@@ -100,7 +111,7 @@ extension WeatherDetailViewController {
     }
     
     func setupLocationLabel() {
-        
+        locationLabel.text = "\(location.localizedName), \(location.administrativeArea.localizedName)"
     }
     
     func setupCollectionView() {
@@ -114,7 +125,7 @@ extension WeatherDetailViewController {
     func getWeatherDetail() {
         refreshButton.isEnabled = false
         
-        WeatherDetailRequest(locationID: 208971, detail: true, metric: false).send { result in
+        WeatherDetailRequest(locationID: location.key, detail: true, metric: false).send { result in
             self.refreshButton.isEnabled = true
             
             switch result {
@@ -122,11 +133,28 @@ extension WeatherDetailViewController {
                 if let dailyForecasts = response.data {
                     if dailyForecasts.forecasts.count > 0 {
                         self.dailyForecasts = dailyForecasts
-                        self.todayForecast = dailyForecasts.forecasts[1]
                         
-                        self.dailyForecasts.forecasts.remove(at: 1)
+                        var index = 0
+                        
+                        for forecast in self.dailyForecasts.forecasts {
+                            if convertEpochToDate(withTimeStamp: forecast.epochDate, AndFormat: "j") != convertEpochToDate(withTimeStamp:Int(NSDate().timeIntervalSince1970), AndFormat: "j") {
+                                
+                                index += 1
+                                
+                                continue
+                            }
+                        
+                            self.todayForecast = forecast
+                            self.dailyForecasts.forecasts.remove(at: index)
+                            
+                            break
+                        }
                         
                         if self.todayForecast != nil {
+                            
+                            debugPrint(self.todayForecast.day.icon)
+                            debugPrint(self.todayForecast.night.icon)
+                            
                             self.setupSubviews()
                             self.setupWeatherBackground()
                         }
@@ -140,8 +168,8 @@ extension WeatherDetailViewController {
         }
     }
     
-    @objc func backButtonTapped() {
-        
+    @objc func searchLocationButtonTapped() {
+        self.dismiss(animated: true, completion: nil)
     }
     
     @objc func temperatureButtonTapped() {
