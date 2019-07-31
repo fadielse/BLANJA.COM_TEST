@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -79,7 +79,7 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="03y-tH-JzZ" secondAttribute="trailing" constant="20" id="RXy-Bo-3BW"/>
                             <constraint firstItem="meP-qX-t6i" firstAttribute="top" secondItem="NIP-hg-3z5" secondAttribute="bottom" id="bdp-dV-Jmm"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="NIP-hg-3z5" secondAttribute="trailing" id="eua-MN-6ze"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="top" secondItem="NIP-hg-3z5" secondAttribute="top" constant="20" id="jGH-dk-z8U"/>
+                            <constraint firstAttribute="top" secondItem="NIP-hg-3z5" secondAttribute="top" id="jGH-dk-z8U"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="meP-qX-t6i" secondAttribute="trailing" id="jrI-pq-HaW"/>
                             <constraint firstItem="03y-tH-JzZ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="sjq-W4-n6f"/>
                             <constraint firstItem="03y-tH-JzZ" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="vSK-zx-mY3"/>
@@ -147,7 +147,7 @@
                                 <size key="shadowOffset" width="2" height="1"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TODAY" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lqt-Z7-Vol">
-                                <rect key="frame" x="17" y="116" width="63.5" height="26"/>
+                                <rect key="frame" x="17" y="116.5" width="63.5" height="26"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="18"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="highlightedColor" red="0.35306485999999998" green="0.93512055839999997" blue="0.24298680189999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -155,7 +155,7 @@
                                 <size key="shadowOffset" width="2" height="1"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="_ _ _" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dIK-7i-Hco">
-                                <rect key="frame" x="166.5" y="162" width="42" height="28.5"/>
+                                <rect key="frame" x="166.5" y="162.5" width="42" height="28.5"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="20"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="highlightedColor" red="0.35306485999999998" green="0.93512055839999997" blue="0.24298680189999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -163,7 +163,7 @@
                                 <size key="shadowOffset" width="2" height="1"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="_ _ _ _" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ead-zG-ivC">
-                                <rect key="frame" x="159" y="390.5" width="57" height="29"/>
+                                <rect key="frame" x="159" y="392" width="57" height="29"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="20"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="highlightedColor" red="0.35306485999999998" green="0.93512055839999997" blue="0.24298680189999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -171,7 +171,7 @@
                                 <size key="shadowOffset" width="2" height="1"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="_ _ _ _" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uew-fb-kiG">
-                                <rect key="frame" x="76.5" y="240" width="222" height="111"/>
+                                <rect key="frame" x="76.5" y="241" width="222" height="111"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="80"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="highlightedColor" red="0.35306485999999998" green="0.93512055839999997" blue="0.24298680189999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -241,7 +241,7 @@
                         <constraints>
                             <constraint firstItem="WBT-mF-EFc" firstAttribute="top" secondItem="9zl-FI-BEN" secondAttribute="bottom" constant="15" id="1GO-ga-ePW"/>
                             <constraint firstItem="lqt-Z7-Vol" firstAttribute="leading" secondItem="WBT-mF-EFc" secondAttribute="leading" id="3xi-7p-ejR"/>
-                            <constraint firstItem="UbB-8S-hw3" firstAttribute="bottom" secondItem="JbA-nx-lVO" secondAttribute="bottom" id="5uk-Qh-PRG"/>
+                            <constraint firstItem="UbB-8S-hw3" firstAttribute="bottom" secondItem="rer-Id-8U3" secondAttribute="bottom" id="5uk-Qh-PRG"/>
                             <constraint firstItem="UbB-8S-hw3" firstAttribute="top" secondItem="rer-Id-8U3" secondAttribute="top" id="APn-Fy-HXx"/>
                             <constraint firstItem="JbA-nx-lVO" firstAttribute="trailing" secondItem="XUQ-yH-gzn" secondAttribute="trailing" constant="16" id="CHe-Ws-vCG"/>
                             <constraint firstItem="9zl-FI-BEN" firstAttribute="height" secondItem="XUQ-yH-gzn" secondAttribute="height" id="Cjw-1O-p3z"/>
